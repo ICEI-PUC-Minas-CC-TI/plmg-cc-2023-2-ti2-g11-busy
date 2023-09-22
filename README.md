@@ -1,18 +1,20 @@
-# [Nome do projeto]
+# BUSY
 
-[Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.]
+BUSY é um sistema de planos de benefícios para pessoas que utilizam ônibus de transporte intermunicipal. Nosso objetivo é melhorar a experiência do passageiro através de benefícios
+de comodidade e descontos, além de milhas e cashback. Com os nossos planos, o usuário tem mais conforto gastando menos, e as empresas de ônibus tem mais controle dos passageiros e 
+aumento na renda com parte da renda dos planos.
 
 ## Alunos integrantes da equipe
 
-* [Nome completo do aluno 1]
-* [Nome completo do aluno 2]
-* [Nome completo do aluno 3]
-* [Nome completo do aluno 4]
+* Arthur de Sá Braz de Matos
+* Célia Regina Perdigão
+* Gabriel Araujo Campos Silva
+* Joshua Victor
 
 ## Professores responsáveis
 
-* [Nome completo do professor 1]
-* [Nome completo do professor 2]
+* Marco Paulo
+* Sandro
 
 ## Instruções de utilização
 
