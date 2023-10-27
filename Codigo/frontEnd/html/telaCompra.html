@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+  <title>BUSY - PAGINA INICIAL</title>
+  <link href="pag_inicial.css" rel="stylesheet" type="text/css" />
+  <link href="telaCompra.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<!--INICIO BODY-->
+
+<body>
+
+  <!--INICIO CABECALHO-->
+  <header class="cabecalho">
+
+    <div class="logo">
+      <h1>BUSY</h1>
+    </div>
+
+    <div class="header_nav">
+      <button id="login">LOGIN</button>
+      <button id="cadastro">CADASTRE-SE</button>
+      <button id="quem_somos">QUEM SOMOS</button>
+      <button id="meu_plano">MEU PLANO</button>
+    </div>
+
+    <div class="menu_opcoes">
+      <button id="menu_opcoes">MENU</button>
+    </div>
+
+  </header>
+  <!-- FIM CABECALHO-->
+
+
+
+  <!--INICIO MAIN-->
+  <main>
+    <div class="cadastroCartao">
+      <label for="nome">Nome no Cartão:</label>
+      <input type="text" id="nome" name="nome" required><br><br>
+
+      <label for="numero_cartao">Número do Cartão:</label>
+      <input type="text" id="numero_cartao" name="numero_cartao" required><br><br>
+
+      <label for="data_validade">Data de Validade:</label>
+      <input type="text" id="data_validade" name="data_validade" placeholder="MM/AAAA" required><br><br>
+
+      <label for="cvv">CVV (Código de Segurança):</label>
+      <input type="number" id="cvv" name="cvv" required><br><br>
+
+      <label for="tipo_cartao">Tipo de Plano:</label>
+
+      <div class="input-container">
+        <label for="luxo">Luxo [R$50]</label>
+        <input type="radio" id="luxo" name="tipo_cartao" value="Luxo" required>
+      </div>
+
+      <div class="input-container">
+        <label for="standard">Standard [R$30]</label>
+        <input type="radio" id="standard" name="tipo_cartao" value="Standard" required>
+      </div>
+
+      <div class="input-container">
+        <label for="empresas">Empresas [R$20 / Funcionário]</label>
+        <input type="radio" id="empresas" name="tipo_cartao" value="Empresas" required>
+      </div>
+
+      <br><br>
+
+      <input type="submit" id="btnComprar" value="Continuar">
+    </div>
+
+  </main>
+  <!-- FIM MAIN-->
+
+
+
+  <!--INICIO RODAPE-->
+  <footer>
+    <div class="rodape">
+
+      <div class="redes_sociais">
+        <h4>Acompanhe-nos nas redes sociais!</h4>
+        <ul>
+          <li><a href=https://www.instagram.com />Instagram</a></li>
+          <li><a href=https://www.facebook.com />Facebook</a></li>
+          <li><a href=https://www.discord.com />Discord</a></li>
+          <li><a href=https://www.twitter.com />Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="politicas_privacidade">
+        <button id="politicas">POLITICAS DE PRIVACIDADE</button>
+      </div>
+
+      <div class="informacoes_gerais">
+        <button id="infos">INFORMAÇÕES GERAIS</button>
+      </div>
+
+      <div class="receba_notificacoes">
+        <form>
+          <label for="email">RECEBA NOTIFICAÇÕES!</label>
+          <input type="email" id="email" name="email" required placeholder="Digite seu email">
+          <input type="submit" value="ENVIAR">
+        </form>
+
+      </div>
+    </div>
+
+  </footer>
+  <!--FIM RODAPE-->
+
+  <script src="telaCompra.js"></script>
+
+</body>
+
+</html>

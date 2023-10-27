@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+  <title>BUSY - MILHAS E CASHBACK</title>
+  <link href="MilhasCashback.css" rel="stylesheet" type="text/css" />
+  <link href="pag_inicial.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="styleguide.css" />
+
+</head>
+
+<!--INICIO BODY-->
+
+<body>
+
+  <!--INICIO CABECALHO-->
+  <header class="cabecalho">
+
+    <div class="logo">
+      <h1>BUSY</h1>
+    </div>
+
+    <div class="header_nav">
+      <button id="login">LOGIN</button>
+      <button id="cadastro">CADASTRE-SE</button>
+      <button id="quem_somos">QUEM SOMOS</button>
+      <button id="meu_plano">MEU PLANO</button>
+    </div>
+
+    <div class="menu_opcoes">
+      <button id="menu_opcoes">MENU</button>
+    </div>
+
+  </header>
+  <!-- FIM CABECALHO-->
+
+  <!--INICIO MAIN-->
+  <main>
+
+    <div class="container1">
+      <div class="milhas">
+        <h1>MILHAS DISPONÍVEIS</h1>
+        <div class="mostrar1">
+          <p id="valor1"> 0000 </p>
+        </div>
+
+
+      </div>
+
+      <div class="cashback">
+        <h1>CASHBACK DISPONÍVEL</h1>
+        <div class="mostrar2">
+          <p id="valor2"> 0000 </p>
+        </div>
+
+      </div>
+
+      <div class="dados">
+        <button class="retangulo1">MILHAS</button>
+        <button class="retangulo2">CASHBACK</button>
+
+        <p class="t1">QUANTIDADE A SER RETIRADA</p>
+        <input class="v1"></input>
+
+        <p class="t2">NOVA QUANTIDADE</p>
+        <p class="v2">0000</p>
+
+        <p class="t3">INSTITUIÇÃO DE DESTINO</p>
+        <input class="v4"></input>
+
+      </div>
+
+      <div class="alinhar">
+        <button class="finalizar">FINALIZAR</button>
+      </div>
+
+    </div>
+
+  </main>
+  <!-- FIM MAIN-->
+
+  <!--INICIO RODAPE-->
+  <footer>
+    <div class="rodape">
+
+      <div class="redes_sociais">
+        <h4>Acompanhe-nos nas redes sociais!</h4>
+        <ul>
+          <li><a href=https://www.instagram.com />Instagram</a></li>
+          <li><a href=https://www.facebook.com />Facebook</a></li>
+          <li><a href=https://www.discord.com />Discord</a></li>
+          <li><a href=https://www.twitter.com />Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="politicas_privacidade">
+        <button id="politicas">POLITICAS DE PRIVACIDADE</button>
+      </div>
+
+      <div class="informacoes_gerais">
+        <button id="infos">INFORMAÇÕES GERAIS</button>
+      </div>
+
+      <div class="receba_notificacoes">
+        <form>
+          <label for="email">RECEBA NOTIFICAÇÕES!</label>
+          <input type="email" id="email" name="email" required placeholder="Digite seu email">
+          <input type="submit" value="ENVIAR">
+        </form>
+
+      </div>
+    </div>
+
+  </footer>
+  <!--FIM RODAPE-->
+
+</body>
+
+<script src="MilhasCashback.js"></script>
+
+</html>

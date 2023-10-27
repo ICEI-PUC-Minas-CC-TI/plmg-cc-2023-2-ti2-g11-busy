@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+  <title>BUSY - PAGINA INICIAL</title>
+  <link href="pag_inicial.css" rel="stylesheet" type="text/css" />
+  <link href="cadastreSe.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<!--INICIO BODY-->
+
+<body>
+
+  <!--INICIO CABECALHO-->
+  <header class="cabecalho">
+
+    <div class="logo">
+      <h1>BUSY</h1>
+    </div>
+
+    <div class="header_nav">
+      <button id="login">LOGIN</button>
+      <button id="cadastro">CADASTRE-SE</button>
+      <button id="quem_somos">QUEM SOMOS</button>
+      <button id="meu_plano">MEU PLANO</button>
+    </div>
+
+    <div class="menu_opcoes">
+      <button id="menu_opcoes">MENU</button>
+    </div>
+
+  </header>
+  <!-- FIM CABECALHO-->
+
+
+
+  <!--INICIO MAIN-->
+  <main>
+    <div class="cont1">
+      <div class="contLeft">
+          <img src="fotoOnibus.jpeg">
+      </div>
+      
+      <div class="contRight" >
+        <form id="formCadastro" ><!--action="/cadastrar" method="post"-->
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required><br><br>
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required><br><br>
+
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" required><br><br>
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required><br><br>
+
+          <!--<label for="confirmar_senha">Confirmar Senha:</label>
+          <input type="password" id="confirmar_senha" name="confirmar_senha" required><br><br>-->
+
+          <!-- Botão Cadastrar -->
+          <button type="submit" id="btnCadastreSe">Cadastrar</button>
+        </form>
+      </div>
+
+
+      <script>
+        document.getElementById("btnCadastreSe").addEventListener("click", function (event) {
+          // Obtém os valores dos campos de formulário
+          var nome = document.getElementById("nome").value;
+          var email = document.getElementById("email").value;
+          var telefone = document.getElementById("telefone").value;
+          var senha = document.getElementById("senha").value;
+          var confirmarSenha = document.getElementById("confirmar_senha").value;
+
+          // Realiza a validação dos campos (adapte conforme suas necessidades)
+          if (nome === "" || email === "" || telefone === "" || senha === "" || confirmarSenha === "") {
+            alert("Por favor, preencha todos os campos.");
+            return;
+          }
+
+          if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+          }
+
+          // Salva os dados no localStorage
+          var formData = {
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            senha: senha
+          };
+
+          localStorage.setItem('formData', JSON.stringify(formData));
+
+          // Envia os dados para o servidor usando AJAX (exemplo usando fetch API)
+          fetch('/cadastrar', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          })
+            .then(response => response.json())
+            .then(data => {
+              // Manipula a resposta do servidor, se necessário
+              console.log(data);
+              // Limpa os dados do localStorage após o envio bem-sucedido
+              localStorage.removeItem('formData');
+            })
+            .catch(error => {
+              console.error('Erro ao cadastrar:', error);
+            });
+        });
+
+      </script>
+
+    </div>
+
+
+  </main>
+  <!-- FIM MAIN-->
+
+
+
+  <!--INICIO RODAPE-->
+  <footer>
+    <div class="rodape">
+
+      <div class="redes_sociais">
+        <h4>Acompanhe-nos nas redes sociais!</h4>
+        <ul>
+          <li><a href=https://www.instagram.com />Instagram</a></li>
+          <li><a href=https://www.facebook.com />Facebook</a></li>
+          <li><a href=https://www.discord.com />Discord</a></li>
+          <li><a href=https://www.twitter.com />Twitter</a></li>
+        </ul>
+      </div>
+
+      <div class="politicas_privacidade">
+        <button id="politicas">POLITICAS DE PRIVACIDADE</button>
+      </div>
+
+      <div class="informacoes_gerais">
+        <button id="infos">INFORMAÇÕES GERAIS</button>
+      </div>
+
+      <div class="receba_notificacoes">
+        <form>
+          <label for="email">RECEBA NOTIFICAÇÕES!</label>
+          <input type="email" id="email" name="email" required placeholder="Digite seu email">
+          <input type="submit" value="ENVIAR">
+        </form>
+
+      </div>
+    </div>
+
+  </footer>
+  <!--FIM RODAPE-->
+
+ <script src="cadastreSe.js"></script>
+  
+</body>
+
+</html>
