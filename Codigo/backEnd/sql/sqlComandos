@@ -1,0 +1,24 @@
+CREATE TABLE cliente ( 
+	id SERIAL PRIMARY KEY, 
+	nome VARCHAR(100) NOT NULL, 
+	email VARCHAR(100) NOT NULL, 
+	telefone INT NOT NULL, 
+	senha VARCHAR(100) NOT NULL; 
+);
+
+CREATE TABLE viagem(
+	id SERIAL PRIMARY KEY,
+	origem VARCHAR(100) NOT NULL,
+	destino VARCHAR(100) NOT NULL,
+	partida DATE,
+	volta DATE
+);
+
+CREATE TABLE pagamento(
+	id SERIAL PRIMARY KEY,
+	nomeCartao VARCHAR(100) NOT NULL,
+	numeroCartao INT NOT NULL,
+	dataValidadeCartao VARCHAR(7) NOT NULL,
+	cvvCartao INT NOT NULL,
+	tipoPlano VARCHAR(20) NOT NULL
+);
