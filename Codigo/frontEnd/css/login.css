@@ -1,0 +1,35 @@
+.cont1{
+  text-align: center;
+  padding: 50px;
+}
+
+.cont1 label{
+  color: var(--COR-TERCIARIA-2, #D9AC2B);
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.cont1 input{
+  border: 5px solid var(--COR-TERCIARIA, #F2C230);
+  background: #FFF;
+  width: 50%;
+}
+
+#btn{
+  border-radius: 54.5px;
+  background: #F2C230;
+  color: #FFF;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 300px;
+}

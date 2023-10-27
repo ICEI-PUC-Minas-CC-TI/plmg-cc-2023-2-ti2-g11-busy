@@ -1,0 +1,13 @@
+.texto{
+  padding: 50px;
+  font-size: 18px;
+  color: #F2C230;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.texto li{
+  padding: 10px;
+}

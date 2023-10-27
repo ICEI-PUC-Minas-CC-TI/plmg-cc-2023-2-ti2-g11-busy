@@ -1,0 +1,53 @@
+.cont1{
+  display: flex;
+  margin: 110px;
+}
+
+.contLeft{
+  flex: 1;
+  float: left;
+}
+
+.contRight{
+  flex: 1;
+  float: right;
+}
+
+img{
+  width: 476px;
+  height: 565px;
+  flex-shrink: 0;
+  border-radius: 69px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  box-shadow: -4px 9px 8px 8px #308B82;
+}
+
+.contRight label{
+  color: var(--COR-TERCIARIA-2, #D9AC2B);
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.contRight input{
+  border: 5px solid var(--COR-TERCIARIA, #F2C230);
+  background: #FFF;
+  width: 100%;
+}
+
+#btnCadastreSe{
+  border-radius: 54.5px;
+  background: #F2C230;
+  color: #FFF;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}

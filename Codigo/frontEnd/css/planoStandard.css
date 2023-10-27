@@ -1,0 +1,87 @@
+.cont1 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+}
+
+.contLeft {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+  padding: 10px;
+  margin-right: 60px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 69px;
+  background: var(--DEGRADE-1, linear-gradient(96deg, #339087 -0.46%, #03FDCE 100%));
+}
+
+.contRight{
+  flex: 1;
+  background: var(--DEGRADE-1, linear-gradient(96deg, #03FDCE -0.46%, #339087 100%));
+  border-radius: 69px;
+  
+}
+
+.upgrade, .prioridade, .outro, .viagens {
+  margin-top: 20px;  
+  padding: 10px;
+  text-align: center;
+}
+
+.tituloDesc{
+  text-align: center;
+  background-color: #F2C230;
+  padding: 10px;
+  border-radius: 20px;
+  
+}
+
+h3 {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #FFF;
+}
+
+.descricaoDesc{
+  padding: 20px;
+  color: #FFF;
+  font-size: 20px;
+}
+
+#gerarCodigo{
+  background-color: #FFF;
+  color: #F2C230;
+  border: none;
+  border-radius: 20px;
+}
+
+#codigoGerado{
+  color: red;
+}
+
+#btnPrioridade ,#btnUpgrade, #btnHistorico {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 20px;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #FFF;
+  background: #F2C230;
+}

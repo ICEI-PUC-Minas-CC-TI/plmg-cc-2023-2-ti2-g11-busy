@@ -1,0 +1,101 @@
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #308B82;
+  padding: 10px;
+  width: 100%;
+  height: 120px;
+  flex-shrink: 0;
+  background: var(--COR-PRINCIPAL, #308B82);
+}
+
+.logo {
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 55px;
+}
+
+#menu_opcoes {
+  margin-right: 55px;
+  color: #FFF;
+  background-color: #F2C230;
+  font-family: IBM Plex Mono;
+  line-height: normal;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0px solid var(--COR-PRINCIPAL, #308B82);
+  background: var(--COR-TERCIARIA, #F2C230);
+}
+
+.table1{
+  text-align: center;
+}
+
+table {
+  margin: 50px;
+  width: 93%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 5px solid #D9AC2B;
+  padding: 8px;
+  text-align: center;
+  font-family: var(--BOTOES-2-font-family);
+  font-weight: var(--BOTOES-2-font-weight);
+  color: #308b82;
+  font-size: var(--BOTOES-2-font-size);
+  letter-spacing: var(--BOTOES-2-letter-spacing);
+  line-height: var(--BOTOES-2-line-height);
+  white-space: nowrap;
+  font-style: var(--BOTOES-2-font-style);
+}
+
+th{
+  background-color:#F2C230 ;
+  font-family: var(--BOTOES-2-font-family);
+  font-weight: var(--BOTOES-2-font-weight);
+  color: #308b82;
+  font-size: var(--BOTOES-2-font-size);
+  letter-spacing: var(--BOTOES-2-letter-spacing);
+  line-height: var(--BOTOES-2-line-height);
+  white-space: nowrap;
+  font-style: var(--BOTOES-2-font-style);
+}
+
+.finalizar{
+  width: 300px;
+  height: 90px;
+  background-color: #F2C230;
+  border-radius: 54.5px;
+  border: none;
+  top: 540px;
+  left: 750px;
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+  /* BOTOES 2 */
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.65px;
+}
+
+.box {
+  width: 1440px;
+  height: 27px;
+}
+
+.box .rectangle {
+  width: 100%;
+  height: 27px;
+  top: 0;
+  left: 0;
+  background-color: #308B82;
+}

@@ -1,0 +1,40 @@
+.texto{
+  text-align: center;
+  color: #F2C230;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  margin: 50px;
+}
+
+
+.pessoas {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+
+.p1, .p2, .p3, .p4 {
+  flex: 1; 
+  padding: 10px; 
+  text-align: center; 
+  border-bottom: 50px;
+}
+
+
+.p1 img, .p2 img, .p3 img, .p4 img {
+  max-width: 100%; 
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+}
+
+
+.p1 h6, .p2 h6, .p3 h6, .p4 h6 {
+  margin: 5px 0; 
+}

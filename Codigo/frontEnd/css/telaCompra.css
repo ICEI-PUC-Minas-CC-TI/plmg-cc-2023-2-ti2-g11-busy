@@ -1,0 +1,50 @@
+.cadastroCartao {
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+  padding: 50px;
+}
+
+.input-container {
+  display: flex; /* Usando flexbox para alinhar a bolinha de escolha e o texto lado a lado */
+  align-items: center; /* Alinhar verticalmente os itens */
+  width: 100%; /* Ocupa toda a largura disponível */
+  justify-content: space-between; /* Adicionar espaço entre a bolinha e o texto */
+}
+
+.input-container input[type="radio"] {
+  margin-right: 10px; /* Espaço entre a bolinha de escolha e o texto */
+}
+
+.cadastroCartao label {
+  color: var(--COR-TERCIARIA-2, #D9AC2B);
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  width: 100%; /* Agora ocupa toda a largura disponível */
+  text-align: center;
+}
+
+.cadastroCartao input {
+  border: 5px solid var(--COR-TERCIARIA, #F2C230);
+  background: #FFF;
+  width: 80%; /* Reduz a largura dos inputs para 80% da largura disponível */
+  text-align: center;
+  margin: 0 auto; /* Centraliza horizontalmente os inputs */
+}
+
+.cadastroCartao input[type="submit"] { 
+  border-radius: 54.5px;
+  background: #F2C230;
+  color: #FFF;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 300px;
+}

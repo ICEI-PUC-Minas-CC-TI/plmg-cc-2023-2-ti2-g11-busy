@@ -1,0 +1,55 @@
+.cont1 {
+  display: flex;
+}
+
+.standard, .luxo, .empresas {
+  flex: 1;
+  padding: 40px;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 69px;
+  background: var(--DEGRADE-2, linear-gradient(96deg, #CB64AA 0%, rgba(251, 0, 171, 0.47) 99.55%));
+  margin: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: -4px 9px 8px 8px #308B82;
+}
+
+.standard{
+  margin-left: 80px;  
+}
+
+.empresas{
+  margin-right: 80px;
+}
+
+.luxo {
+  flex: 1.5;
+}
+
+h3{
+  text-decoration: overline;  
+}
+
+h3, p{
+  color: #FFF;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+}
+
+#btnS, #btnL, #btnE{
+  border-radius: 35px;
+  background: #F2C230;
+  color: #FFF;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 5px;
+}

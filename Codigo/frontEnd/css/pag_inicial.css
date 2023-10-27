@@ -1,0 +1,317 @@
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #308B82;
+  padding: 10px;
+
+  height: 120px;
+  flex-shrink: 0;
+  background: var(--COR-PRINCIPAL, #308B82);
+}
+
+.logo {
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 55px;
+}
+
+.header_nav {
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+#login, #cadastro, #quem_somos, #meu_plano {
+  background: none;
+  border: none;
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 30px;
+}
+
+#menu_opcoes {
+  margin-right: 55px;
+  color: #FFF;
+  background-color: #F2C230;
+  font-family: IBM Plex Mono;
+  line-height: normal;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0px solid var(--COR-PRINCIPAL, #308B82);
+  background: var(--COR-TERCIARIA, #F2C230);
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+.pesquisarRotas h1 {
+  color: #FFF;
+  background-color: #F2C230;
+  font-family: IBM Plex Mono;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 40px;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 32px;
+  border: 0px solid var(--COR-PRINCIPAL, #308B82);
+  background: var(--COR-TERCIARIA, #F2C230);
+}
+
+.pesquisarRotas h5 {
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 30px;
+}
+
+/* Estilo para o contêiner principal */
+.pesquisarRotas {
+  background: var(--COR-SECUNDARIA, #20BFA1);
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 32px;
+  border: 0px solid var(--COR-PRINCIPAL, #308B82);
+  color: var(--COR-TERCIARIA, #FFF);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.65px;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.origem,
+.destino,
+.dataPartida,
+.dataVolta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.origem label,
+.destino label,
+.dataPartida label,
+.dataVolta label {
+  width: 30%;
+}
+
+
+.origem input,
+.destino input,
+.dataPartida input,
+.dataVolta input {
+  width: 65%;
+}
+
+.botaoBuscar {
+  margin: 15px;
+}
+
+#buscarRotas {
+  color: #FFF;
+  background-color: #F2C230;
+  font-family: IBM Plex Mono;
+  line-height: normal;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0px solid var(--COR-PRINCIPAL, #308B82);
+  background: var(--COR-TERCIARIA, #F2C230);
+}
+
+/*------------------------------------------------------*/
+.container {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.containerLeft {
+  flex: 2; /* Deixa mais espaço para o containerLeft */
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 447px;
+  flex-shrink: 0;
+  border-radius: 69px;
+  background: var(--DEGRADE-1, linear-gradient(96deg, #339087 -0.46%, #03FDCE 100%));
+}
+
+#nossosPlanos {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.containerRight {
+  flex: 3; /* Aumenta o tamanho horizontal do containerRight */
+  margin: 50px;
+  display: flex;
+  width: 80%; /* Ajuste a largura conforme necessário */
+  flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha */
+  justify-content: space-between; /* Distribuir igualmente os elementos na horizontal */
+  align-items: center; /* Centralizar verticalmente */
+}
+
+.av1,
+.av2,
+.av3 {
+  flex-basis: calc(33.33% - 20px); /* Calcula a largura para ocupar 33.33% do espaço disponível com o espaçamento interno subtraído */
+  padding: 20px; /* Adicionar um espaçamento interno para melhor legibilidade */
+  text-align: center; /* Centralizar conteúdo horizontalmente */
+  display: flex; /* Tornar elementos "av" flex containers */
+  flex-direction: column; /* Alinhar conteúdo verticalmente */
+  justify-content: center; /* Centralizar conteúdo verticalmente */
+  align-items: center; /* Centralizar conteúdo horizontalmente */
+}
+
+.av1 img,
+.av2 img,
+.av3 img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Tornar as imagens redondas */
+}
+
+.av1 h6,
+.av2 h6,
+.av3 h6 {
+  font-size: 18px;
+  margin: 10px 0;
+  background: var(--COR-SECUNDARIA, #20BFA1);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.av1 p,
+.av2 p,
+.av3 p {
+  font-size: 20px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+
+/*-------------------------------------------------------------------------------------------*/
+
+.rodape {
+  flex-shrink: 0;
+  background: var(--COR-SECUNDARIA, #20BFA1);
+  border-top-left-radius: 90px;
+  border-top-right-radius: 90px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+.redes_sociais h4 {
+  color: #FFF;
+  font-family: IBM Plex Mono;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.redes_sociais a {
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.redes_sociais,
+.politicas_privacidade,
+.informacoes_gerais,
+.receba_notificacoes {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.politicas_privacidade button,
+.informacoes_gerais button {
+  color: #FFF;
+  margin-right: 10px;
+  padding: 15px;
+  background-color: #F2C230;
+  border-radius: 20px;
+  border: 1px solid #F2C230;
+}
+
+.receba_notificacoes {
+  background-color: #F2C230;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.receba_notificacoes input {
+  background-color: aliceblue;
+  padding: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .rodape {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rodape>* {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+
+  .redes_sociais,
+  .politicas_privacidade,
+  .informacoes_gerais,
+  .receba_notificacoes {
+    text-align: center;
+  }
+}
