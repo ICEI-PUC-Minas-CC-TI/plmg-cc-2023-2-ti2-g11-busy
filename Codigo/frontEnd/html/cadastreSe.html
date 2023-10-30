@@ -46,11 +46,11 @@
   <main>
     <div class="cont1">
       <div class="contLeft">
-          <img src="fotoOnibus.jpeg">
+        <img src="fotoOnibus.jpeg">
       </div>
-      
+
       <div class="contRight" >
-        <form id="formCadastro" ><!--action="/cadastrar" method="post"-->
+        <form id="formCadastro" action="/cadastrarCliente" method="post">
           <label for="nome">Nome:</label>
           <input type="text" id="nome" name="nome" required><br><br>
 
@@ -67,7 +67,7 @@
           <input type="password" id="confirmar_senha" name="confirmar_senha" required><br><br>-->
 
           <!-- Botão Cadastrar -->
-          <button type="submit" id="btnCadastreSe">Cadastrar</button>
+          <input type="submit" value="Cadastrar">
         </form>
       </div>
 
@@ -167,8 +167,8 @@
   </footer>
   <!--FIM RODAPE-->
 
- <script src="cadastreSe.js"></script>
-  
+  <script src="cadastreSe.js"></script>
+
 </body>
 
 </html>
