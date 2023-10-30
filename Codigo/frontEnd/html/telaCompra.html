@@ -45,38 +45,40 @@
   <!--INICIO MAIN-->
   <main>
     <div class="cadastroCartao">
-      <label for="nome">Nome no Cartão:</label>
-      <input type="text" id="nome" name="nome" required><br><br>
+      <form id="formCadastro" action="/cadastrarPagamento" method="post">
+        <label for="nome">Nome no Cartão:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
 
-      <label for="numero_cartao">Número do Cartão:</label>
-      <input type="text" id="numero_cartao" name="numero_cartao" required><br><br>
+        <label for="numero_cartao">Número do Cartão:</label>
+        <input type="text" id="numero_cartao" name="numero_cartao" required><br><br>
 
-      <label for="data_validade">Data de Validade:</label>
-      <input type="text" id="data_validade" name="data_validade" placeholder="MM/AAAA" required><br><br>
+        <label for="data_validade">Data de Validade:</label>
+        <input type="text" id="data_validade" name="data_validade" placeholder="MM/AAAA" required><br><br>
 
-      <label for="cvv">CVV (Código de Segurança):</label>
-      <input type="number" id="cvv" name="cvv" required><br><br>
+        <label for="cvv">CVV (Código de Segurança):</label>
+        <input type="number" id="cvv" name="cvv" required><br><br>
 
-      <label for="tipo_cartao">Tipo de Plano:</label>
+        <label for="tipo_cartao">Tipo de Plano:</label>
 
-      <div class="input-container">
-        <label for="luxo">Luxo [R$50]</label>
-        <input type="radio" id="luxo" name="tipo_cartao" value="Luxo" required>
-      </div>
+        <div class="input-container">
+          <label for="luxo">Luxo [R$50]</label>
+          <input type="radio" id="luxo" name="tipo_cartao" value="Luxo" required>
+        </div>
 
-      <div class="input-container">
-        <label for="standard">Standard [R$30]</label>
-        <input type="radio" id="standard" name="tipo_cartao" value="Standard" required>
-      </div>
+        <div class="input-container">
+          <label for="standard">Standard [R$30]</label>
+          <input type="radio" id="standard" name="tipo_cartao" value="Standard" required>
+        </div>
 
-      <div class="input-container">
-        <label for="empresas">Empresas [R$20 / Funcionário]</label>
-        <input type="radio" id="empresas" name="tipo_cartao" value="Empresas" required>
-      </div>
+        <div class="input-container">
+          <label for="empresas">Empresas [R$20 / Funcionário]</label>
+          <input type="radio" id="empresas" name="tipo_cartao" value="Empresas" required>
+        </div>
 
-      <br><br>
+        <br><br>
 
-      <input type="submit" id="btnComprar" value="Continuar">
+        <input type="submit" id="btnComprar" value="Continuar">
+      </form>
     </div>
 
   </main>
