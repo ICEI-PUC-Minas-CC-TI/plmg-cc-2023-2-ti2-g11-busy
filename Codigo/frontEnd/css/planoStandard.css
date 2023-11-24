@@ -27,7 +27,7 @@
   
 }
 
-.upgrade, .prioridade, .outro, .viagens {
+.viagens, .prioridade, .bot, .atualizar {
   margin-top: 20px;  
   padding: 10px;
   text-align: center;
@@ -71,7 +71,7 @@ h3 {
   color: red;
 }
 
-#btnPrioridade ,#btnUpgrade, #btnHistorico {
+#btnPrioridade ,#btnHistorico, #btnBot, #btnAtualizar {
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
