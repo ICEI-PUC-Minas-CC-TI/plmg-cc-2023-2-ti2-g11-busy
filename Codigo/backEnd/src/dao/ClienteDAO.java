@@ -36,7 +36,7 @@ public class ClienteDAO extends DAO {
             e.printStackTrace();
         }
         
-        System.out.println("INSERIDO COM SUCESSO");
+        System.out.println("INSERIDO CLIENTE COM SUCESSO");
 		
 	}
 	
@@ -55,26 +55,62 @@ public class ClienteDAO extends DAO {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
+		
+		System.out.println("EXIBIDO CLIENTE COM SUCESSO");
+		
 		return cliente;
 	}
 	
+	public Cliente getByEmail(String email) {
+	    Cliente cliente = null;
+	    
+	    try {
+	        Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+	        String sql = "SELECT * FROM cliente WHERE email='" + email + "'";
+	        ResultSet rs = st.executeQuery(sql);
+	        if (rs.next()) {
+	            cliente = new Cliente(rs.getInt("id"), rs.getString("nome"), rs.getString("email"),
+	                    rs.getString("telefone"), rs.getString("senha"));
+	        }
+	        st.close();
+	    } catch (Exception e) {
+	        System.err.println(e.getMessage());
+	    }
+	    
+	    System.out.println("EXIBIDO CLIENTE COM SUCESSO");
+	    
+	    return cliente;
+	}
+
+	
 	public boolean update(Cliente cliente) {
-		boolean status = false;
-		try {  
-			String sql = "UPDATE cliente SET nome = '" + cliente.getNome() + "', "
-                   + "email = '" + cliente.getEmail() + "', "
-                   + "telefone = '" + cliente.getTelefone() + "', "
-                   + "senha = '" + cliente.getSenha() + "' "
-                   + "WHERE id = " + cliente.getId();
-			PreparedStatement st = conexao.prepareStatement(sql);
-		    
-			st.executeUpdate();
-			st.close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
+	    boolean status = false;
+	    try {
+	        String sql = "UPDATE cliente SET nome = ?, "
+	                + "email = ?, "
+	                + "telefone = ?, "
+	                + "senha = ? "
+	                + "WHERE id = ?";
+	        
+	        try (PreparedStatement st = conexao.prepareStatement(sql)) {
+	            st.setString(1, cliente.getNome());
+	            st.setString(2, cliente.getEmail());
+	            st.setString(3, cliente.getTelefone());
+	            st.setString(4, cliente.getSenha());
+	            st.setInt(5, cliente.getId());
+
+	            int rowsUpdated = st.executeUpdate();
+
+	            if (rowsUpdated > 0) {
+	                status = true;
+	            }
+	        }
+	    } catch (SQLException u) {
+	        throw new RuntimeException(u);
+	    }
+	    
+	    System.out.println("UPDATE CLIENTE COM SUCESSO");
+	    return status;
 	}
 	
 	public boolean delete(int id) {
@@ -87,6 +123,7 @@ public class ClienteDAO extends DAO {
 		} catch (SQLException u) {  
 			throw new RuntimeException(u);
 		}
+		System.out.println("DELETADO CLIENTE COM SUCESSO");
 		return status;
 	}
 	
