@@ -12,17 +12,20 @@ function buscarLogin() {
       var parsedResult = JSON.parse(resultado);
 
       if (parsedResult.success) {
-        // Redirecionar para meuPlano.html se o resultado for true
-        window.location.href = "planoLuxo.html";
-      } else {
-        // Exibir pop-up com a mensagem de erro do servidor
-        exibirPopup("Erro: " + parsedResult.message);
+          if (email === "adm@gmail.com") {  // Se for administrador levar para a página de adm
+              window.location.href = "adm.html";
+          } else {                          // Caso contrário, é um usuário comum, levar para o plano
+              window.location.href = "planoLuxo.html";
       }
-    },
-    error: function (xhr, status, error) {
+      } else {
+          // Exibir pop-up com a mensagem de erro do servidor
+          exibirPopup("Erro: " + parsedResult.message);
+      },
+      error: function (xhr, status, error) {
       console.error("Erro na requisição:", status, error);
       exibirPopup("Erro na requisição. Tente novamente mais tarde.");
-    }
+      }
+
   });
 }
 
