@@ -44,18 +44,26 @@ btnHistorico.addEventListener('click', function() {
 
 });
 
-//BTN MILHAS E CASHBACKS
-const btnMeC = document.getElementById("btnMeC");
+//BTN BOT
+const btnChatBot = document.getElementById("btnBot");
 
-btnMeC.addEventListener('click', function() {
+btnChatBot.addEventListener('click', function() {
 
-  window.location.href = 'MilhasCashback.html';
+  window.location.href = 'bot.html';
+
+}); 
+
+//BTN ATUALIZAR
+const btnAtt = document.getElementById("btnAtualizar");
+
+btnAtt.addEventListener('click', function() {
+
+  window.location.href = 'atualizarCliente.html';
 
 }); 
 
 
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //BTN LOGIN
 const btnLogin = document.getElementById("login");
 
