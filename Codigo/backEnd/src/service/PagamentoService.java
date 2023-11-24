@@ -59,36 +59,53 @@ public class PagamentoService {
         return respostaJS;
     }
 	
-	public Pagamento get(Request request, Response response) {
-		int id = Integer.parseInt(request.params(":id"));
-        return pagamentoDAO.get(id);
-    }
+	public Object get(Request request, Response response) {
+	    int id = Integer.parseInt(request.params("id"));
+	    Pagamento pagamento = pagamentoDAO.get(id);
 
-	public String update(Request request, Response response) {
-		int id = Integer.parseInt(request.params(":id"));
-		Pagamento pagamento = (Pagamento) pagamentoDAO.get(id);
-		String resp = "";
+	    if (pagamento != null) {
+	        response.type("text/html;charset=utf-8");
+	        String htmlResponse = "<h3>Dados do Pagamento</h3>" +
+	                "<p>ID: " + pagamento.getId() + "</p>" +
+	                "<p>Nome no cartão: " + pagamento.getNomeCartao() + "</p>" +
+	                "<p>Numero do cartão criptografado: " + pagamento.getNumeroCartao() + "</p>" +
+	                "<p>Data de validade do cartão criptografada: " + pagamento.getDataValidade() + "</p>" +
+	                "<p>CVV do cartão criptografado: " + pagamento.getCvvCartao() + "</p>" +
+	                "<p>Tipo do Plano: " + pagamento.getTipoPlano() + "</p>";
+	        return htmlResponse;
+	        
+	    } else {	        
+	        response.type("text/html;charset=utf-8");
+	        String htmlResponse = "<h3>Pagamento com ID desejado não existe.</h3>";
+	        return htmlResponse;
+	    }
+	}
 
-		if (pagamento != null) {
-			pagamento.setNomeCartao(request.queryParams("nome"));
-			pagamento.setNumeroCartao(request.queryParams("numero_cartao"));
-			pagamento.setDataValidade(request.queryParams("data_validade"));
-			pagamento.setCvvCartao(request.queryParams("cvv"));
-			pagamento.setTipoPlano(request.queryParams("tipo_cartao"));
+	public String update(Request request, Response response) throws Exception {
+	    int id = Integer.parseInt(request.params(":id"));
+	    Pagamento pagamento = pagamentoDAO.get(id);
+	    String resp = "";
 
-			pagamentoDAO.update(pagamento);
-			response.status(200); // success
-			resp = "Pagamento (ID " + pagamento.getId() + ") atualizado!";
-		} else {
-			response.status(404); // 404 Not found
-			resp = "Pagamento (ID \" + pagamento.getId() + \") não encontrado!";
-		}
-		
-		return resp;
+	    if (pagamento != null) {
+	    	pagamento.setNomeCartao(request.queryParams("nomecartao"));
+	    	pagamento.setNumeroCartao(codificar(request.queryParams("numerocartao")));
+	    	pagamento.setDataValidade(codificar(request.queryParams("datavalidadecartao")));
+	    	pagamento.setCvvCartao(codificar(request.queryParams("cvvcartao")));
+	    	pagamento.setTipoPlano(request.queryParams("tipoplano"));
+
+	    	pagamentoDAO.update(pagamento);
+	        response.status(200); // success
+	        resp = "Pagamento (ID " + pagamento.getId() + ") atualizado!";
+	    } else {
+	        response.status(404); // 404 Not found
+	        resp = "Pagamento (ID " + id + ") não encontrado!";
+	    }
+
+	    return resp;
 	}
 
     
-    public String delete(Request request, Response response) {
+	public String delete(Request request, Response response) {
     	int id = Integer.parseInt(request.params(":id"));
         if (pagamentoDAO.delete(id)) {
             return "Pagamento excluído com sucesso!";
