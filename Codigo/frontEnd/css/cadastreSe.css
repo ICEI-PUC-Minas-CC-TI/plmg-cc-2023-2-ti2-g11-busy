@@ -1,3 +1,4 @@
+
 .cont1{
   display: flex;
   margin: 110px;
@@ -6,6 +7,7 @@
 .contLeft{
   flex: 1;
   float: left;
+  justify-content: center;
 }
 
 .contRight{
@@ -38,7 +40,7 @@ img{
   width: 100%;
 }
 
-#btnCadastreSe{
+#btn{
   border-radius: 54.5px;
   background: #F2C230;
   color: #FFF;
@@ -50,4 +52,5 @@ img{
   display: block;
   margin: 0 auto;
   margin-top: 20px;
+  width: 300px;
 }
