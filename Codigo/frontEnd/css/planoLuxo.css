@@ -27,7 +27,7 @@
   
 }
 
-.chatbot, .prioridade, .milhasCashback, .viagens {
+.viagens, .prioridade, .bot, .atualizar {
   margin-top: 20px;  
   padding: 10px;
   text-align: center;
@@ -36,10 +36,11 @@
 .tituloDesc{
   text-align: center;
   background-color: #F2C230;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
-  
+  border-top: 10px;
 }
+
 
 h3 {
   font-size: 50px;
@@ -71,7 +72,7 @@ h3 {
   color: red;
 }
 
-#btnPrioridade, #btnMeC, #btnHistorico, #btnAssistente {
+#btnPrioridade ,#btnHistorico, #btnBot, #btnAtualizar {
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
