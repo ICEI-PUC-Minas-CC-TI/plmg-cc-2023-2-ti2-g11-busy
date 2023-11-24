@@ -5,7 +5,7 @@ import model.Viagem;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.beans.Statement;
+//import java.beans.Statement;
 import java.sql.Date;
 
 public class ViagemDAO extends DAO {	
@@ -35,27 +35,35 @@ public class ViagemDAO extends DAO {
             e.printStackTrace();
         }
         
-        System.out.println("INSERIDO COM SUCESSO");
+        System.out.println("INSERIDO VIAGEM COM SUCESSO");
 		
 	}
 	
 	public Viagem get(int id) {
-		Viagem viagem = null;
-		
-		try {
-			java.sql.Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-			String sql = "SELECT * FROM viagem WHERE id="+id;
-			ResultSet rs = st.executeQuery(sql);	
-	        if(rs.next()){            
-	        	viagem = new Viagem(rs.getInt("id"), rs.getString("origem"), rs.getString("destino"), 
-	        			rs.getDate("partida").toLocalDate(), rs.getDate("volta").toLocalDate());
+	    Viagem viagem = null;
+
+	    try {
+	        java.sql.Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+	        String sql = "SELECT * FROM viagem WHERE id=" + id;
+	        ResultSet rs = st.executeQuery(sql);
+	        if (rs.next()) {
+	            viagem = new Viagem(
+	                    rs.getInt("id"),
+	                    rs.getString("origem"),
+	                    rs.getString("destino"),
+	                    rs.getDate("partida").toLocalDate(),
+	                    rs.getDate("volta").toLocalDate()
+	            );
 	        }
 	        st.close();
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
-		return viagem;
+	    } catch (Exception e) {
+	        System.err.println(e.getMessage());
+	    }
+	    
+	    System.out.println("EXIBIDO VIAGEM COM SUCESSO");
+	    return viagem;
 	}
+
 	
 	public boolean update(Viagem viagem) {
 		boolean status = false;
@@ -73,21 +81,26 @@ public class ViagemDAO extends DAO {
 		} catch (SQLException u) {  
 			throw new RuntimeException(u);
 		}
+		
+		System.out.println("UPDATE VIAGEM COM SUCESSO");
 		return status;
 	}
 	
 	public boolean delete(int id) {
-		boolean status = false;
-		try {  
-			Statement st = (Statement) conexao.createStatement();
-			((java.sql.Statement) st).executeUpdate("DELETE FROM viagem WHERE id = " + id);
-			((java.sql.Statement) st).close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
+	    boolean status = false;
+	    try {
+	        java.sql.Statement st = conexao.createStatement();
+	        st.executeUpdate("DELETE FROM viagem WHERE id = " + id);
+	        st.close();
+	        status = true;
+	    } catch (SQLException u) {
+	        throw new RuntimeException(u);
+	    }
+	    
+	    System.out.println("DELETADO VIAGEM COM SUCESSO");
+	    return status;
 	}
+
 	
 
 }    		//FIM DA FUNCAO VIAGEMDAO
