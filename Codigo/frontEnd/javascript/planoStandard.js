@@ -44,12 +44,21 @@ btnHistorico.addEventListener('click', function() {
 
 });
 
-//BTN UPGRADE
-const btnUpgr = document.getElementById("btnUpgrade");
+//BTN BOT
+const btnChatBot = document.getElementById("btnBot");
 
-btnUpgr.addEventListener('click', function() {
+btnChatBot.addEventListener('click', function() {
 
-  window.location.href = 'telaCompra.html';
+  window.location.href = 'bot.html';
+
+}); 
+
+//BTN ATUALIZAR
+const btnAtt = document.getElementById("btnAtualizar");
+
+btnAtt.addEventListener('click', function() {
+
+  window.location.href = 'atualizarCliente.html';
 
 }); 
 
