@@ -16,16 +16,6 @@ btnLuxo.addEventListener('click', function() {
 
 });
 
-//BTN EMPRESAS
-const btnEmpre = document.getElementById("btnE");
-
-btnEmpre.addEventListener('click', function() {
-
-  window.location.href = 'telaCompra.html';
-
-});
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //BTN LOGIN
 const btnLogin = document.getElementById("login");
