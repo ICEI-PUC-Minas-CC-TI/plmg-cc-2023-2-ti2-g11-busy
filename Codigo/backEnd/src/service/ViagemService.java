@@ -38,10 +38,30 @@ public class ViagemService {
     }
 	
 	
-	public Viagem get(Request request, Response response) {
-		int id = Integer.parseInt(request.params(":id"));
-        return viagemDAO.get(id);
-    }
+	public Object get(Request request, Response response) {
+	    int id = Integer.parseInt(request.params("id"));
+	    Viagem viagem = viagemDAO.get(id);
+
+	    if (viagem != null) {
+	        response.type("text/html;charset=utf-8");
+	        String htmlResponse = "<h3>Dados da Viagem</h3>" +
+	                "<p>ID: " + viagem.getId() + "</p>" +
+	                "<p>Origem: " + viagem.getOrigem() + "</p>" +
+	                "<p>Destino: " + viagem.getDestino() + "</p>" +
+	                "<p>Partida: " + viagem.getPartida() + "</p>" +
+	                "<p>Volta: " + viagem.getVolta() + "</p>";
+	        return htmlResponse;
+	        
+	    } else {	        
+	        response.type("text/html;charset=utf-8");
+	        String htmlResponse = "<h3>Viagem com ID desejado não existe.</h3>";
+	        return htmlResponse;
+	    }
+	}
+
+
+
+
 
     public String update(Request request, Response response) {
     	int id = Integer.parseInt(request.params(":id"));
@@ -50,9 +70,10 @@ public class ViagemService {
 
 		if (viagem != null) {
 			viagem.setOrigem(request.queryParams("origem"));
-			viagem.setOrigem(request.queryParams("destino"));
-			viagem.setOrigem(request.queryParams("partida"));
-			viagem.setOrigem(request.queryParams("volta"));
+			viagem.setDestino(request.queryParams("destino"));
+			viagem.setPartida(LocalDate.parse(request.queryParams("partida")));
+			viagem.setVolta(LocalDate.parse(request.queryParams("volta")));
+
 
 			viagemDAO.update(viagem);
 			response.status(200); // success
