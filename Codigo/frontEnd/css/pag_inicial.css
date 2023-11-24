@@ -30,7 +30,10 @@
   letter-spacing: -0.72px;
 }
 
-#login, #cadastro, #quem_somos, #meu_plano {
+#login,
+#cadastro,
+#quem_somos,
+#meu_plano {
   background: none;
   border: none;
   color: #FFF;
@@ -163,7 +166,8 @@ input[type="date"] {
 }
 
 .containerLeft {
-  flex: 2; /* Deixa mais espaço para o containerLeft */
+  flex: 2;
+  /* Deixa mais espaço para o containerLeft */
   width: 40%;
   display: flex;
   align-items: center;
@@ -172,6 +176,57 @@ input[type="date"] {
   flex-shrink: 0;
   border-radius: 69px;
   background: var(--DEGRADE-1, linear-gradient(96deg, #339087 -0.46%, #03FDCE 100%));
+}
+
+#imgbot {
+  border-radius: 200px;
+  padding-right: 20px;
+}
+
+.chatbot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.cb1 {
+  flex-shrink: 0;
+}
+
+.cb2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.cb2 h4 {
+  background-color: #339087;
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+#btnChatBot {
+  border-radius: 25px;
+  font-size: 30px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  background: #20BFA1;
+  padding: 15px;
+  border: none;
+  color: white;
+  margin-top: 15px;
+}
+
+.highlighted-word {
+  color: white;
+  border-radius: 25px;
+  padding: 6px;
+  background-color: #F2C230;
 }
 
 #nossosPlanos {
@@ -187,25 +242,25 @@ input[type="date"] {
 }
 
 .containerRight {
-  flex: 3; /* Aumenta o tamanho horizontal do containerRight */
+  flex: 3;
   margin: 50px;
   display: flex;
-  width: 80%; /* Ajuste a largura conforme necessário */
-  flex-wrap: wrap; /* Permite que os elementos quebrem para a próxima linha */
-  justify-content: space-between; /* Distribuir igualmente os elementos na horizontal */
-  align-items: center; /* Centralizar verticalmente */
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .av1,
 .av2,
 .av3 {
-  flex-basis: calc(33.33% - 20px); /* Calcula a largura para ocupar 33.33% do espaço disponível com o espaçamento interno subtraído */
-  padding: 20px; /* Adicionar um espaçamento interno para melhor legibilidade */
-  text-align: center; /* Centralizar conteúdo horizontalmente */
-  display: flex; /* Tornar elementos "av" flex containers */
-  flex-direction: column; /* Alinhar conteúdo verticalmente */
-  justify-content: center; /* Centralizar conteúdo verticalmente */
-  align-items: center; /* Centralizar conteúdo horizontalmente */
+  flex-basis: calc(33.33% - 20px);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .av1 img,
@@ -213,7 +268,7 @@ input[type="date"] {
 .av3 img {
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* Tornar as imagens redondas */
+  border-radius: 50%;
 }
 
 .av1 h6,
