@@ -1,12 +1,35 @@
-//BTN ENTRAR
-const btnComprar = document.getElementById("btn");
+function buscarLogin() {
+  var email = $("#idEmail").val();
+  var senha = $("#idSenha").val();
 
-btnComprar.addEventListener('click', function() {
+  // Realizar requisição AJAX para obter os dados do cliente
+  $.ajax({
+    url: "/cliente/" + email,
+    type: "POST",  // Alterado para POST
+    contentType: "application/json; charset=utf-8",  // Adicionado tipo de conteúdo
+    data: JSON.stringify({ senha: senha }),  // Passa a senha como JSON no corpo da requisição
+    success: function (resultado) {
+      var parsedResult = JSON.parse(resultado);
 
-  window.location.href = 'planoLuxo.html';            ///////DEPENDE DO PLANO DA PESSOA//////////////////
+      if (parsedResult.success) {
+        // Redirecionar para meuPlano.html se o resultado for true
+        window.location.href = "planoLuxo.html";
+      } else {
+        // Exibir pop-up com a mensagem de erro do servidor
+        exibirPopup("Erro: " + parsedResult.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Erro na requisição:", status, error);
+      exibirPopup("Erro na requisição. Tente novamente mais tarde.");
+    }
+  });
+}
 
-}); 
-
+function exibirPopup(mensagem) {
+  // Exibir pop-up com a mensagem de erro
+  alert(mensagem);
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
