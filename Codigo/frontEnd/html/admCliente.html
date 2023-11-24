@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Viagem por ID</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="getCliente">
+      <h1>Pesquisa de Cliente</h1>
+
+      <form id="pesquisaFormCliente">
+        <label for="idInputCliente">Digite o ID do Cliente:</label>
+        <input type="text" id="idInputCliente" name="id" required>
+        <button type="button" onclick="pesquisarCliente()">Pesquisar</button>
+      </form>
+
+      <div id="resultadoCliente">
+        <!-- Aqui será exibido o resultado da pesquisa -->
+      </div>
+    </div>
+
+    <div class="deleteCliente">
+      <h1>Exclusão de Cliente</h1>
+
+      <form id="exclusaoFormCliente">
+        <label for="idInputExclusaoCliente">Digite o ID para Excluir:</label>
+        <input type="text" id="idInputExclusaoCliente" name="id" required>
+        <button type="button" onclick="excluirCliente()">Excluir</button>
+      </form>
+
+      <div id="resultadoExclusaoCliente">
+        <!-- Aqui será exibido o resultado da exclusão -->
+      </div>
+    </div>
+
+    <div class="updateCliente">
+      <h1>Update de Cliente</h1>
+
+      <form id="pesquisaFormCliente">
+        <label for="idInputCliente">Digite o ID do Cliente:</label>
+        <input type="text" id="idInputCliente" name="id" required>
+        <button type="button" onclick="pesquisarCliente2()">Pesquisar</button>
+      </form>
+
+      <div id="resultadoCliente">
+        <!-- Aqui será exibido o resultado da pesquisa -->
+      </div>
+
+      <form id="atualizacaoFormCliente" style="display:none;">
+        <h2>Atualizar Cliente</h2>
+        <label for="nomeInput">Nome:</label>
+        <input type="text" id="nomeInput" name="nome" required>
+
+        <label for="emailInput">Email:</label>
+        <input type="email" id="emailInput" name="email" required>
+
+        <label for="telefoneInput">Telefone:</label>
+        <input type="text" id="telefoneInput" name="telefone" required>
+
+        <label for="senhaInput">Senha:</label>
+        <input type="password" id="senhaInput" name="senha" required>
+
+        <button type="button" onclick="atualizarCliente()">Atualizar</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    function pesquisarCliente() {
+      var id = $("#idInputCliente").val();
+
+      // Realizar requisição AJAX para obter os dados do cliente
+      $.ajax({
+        url: "/cliente/" + id,
+        type: "GET",
+        success: function (resultado) {
+          exibirResultado(resultado, "resultadoCliente");
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro na requisição:", status, error);
+          exibirResultado(null, "resultadoCliente");
+        }
+      });
+    }
+
+    function exibirResultado(resultado, divId) {
+      var resultadoDiv = $("#" + divId);
+
+      resultadoDiv.html(resultado);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+
+    function excluirCliente() {
+      var idCliente = document.getElementById("idInputExclusaoCliente").value;
+
+      // Fazer uma requisição ao servidor para realizar a exclusão
+      fetch("/cliente/delete/" + idCliente, {
+        method: "DELETE",
+      })
+        .then(response => response.text())
+        .then(result => {
+          // Exibir o resultado da exclusão na página
+          document.getElementById("resultadoExclusaoCliente").innerHTML = result;
+        })
+        .catch(error => {
+          console.error("Erro ao excluir cliente:", error);
+          // Tratar o erro, se necessário
+        });
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    function pesquisarCliente2() {
+      var id = $("#idInputCliente").val();
+
+      // Realizar requisição AJAX para obter os dados do cliente
+      $.ajax({
+        url: "/cliente/" + id,
+        type: "GET",
+        success: function (resultado) {
+          exibirResultado(resultado, "resultadoCliente");
+          exibirFormularioAtualizacao(resultado);
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro na requisição:", status, error);
+          exibirResultado(null, "resultadoCliente");
+          ocultarFormularioAtualizacao();
+        }
+      });
+    }
+
+    function exibirFormularioAtualizacao(cliente) {
+      if (cliente) {
+        $("#nomeInput").val(cliente.nome);
+        $("#emailInput").val(cliente.email);
+        $("#telefoneInput").val(cliente.telefone);
+        $("#senhaInput").val(cliente.senha);
+
+        $("#atualizacaoFormCliente").show();
+      } else {
+        ocultarFormularioAtualizacao();
+      }
+    }
+
+    function ocultarFormularioAtualizacao() {
+      $("#atualizacaoFormCliente").hide();
+    }
+
+    function atualizarCliente() {
+      var idCliente = $("#idInputCliente").val();
+
+      // Fazer uma requisição ao servidor para realizar a atualização
+      $.ajax({
+        url: "/cliente/update/" + idCliente,
+        type: "POST",
+        data: {
+          nome: $("#nomeInput").val(),
+          email: $("#emailInput").val(),
+          telefone: $("#telefoneInput").val(),
+          senha: $("#senhaInput").val()
+        },
+        success: function (resultado) {
+          // Exibir o resultado da atualização na página
+          alert(resultado);
+          // Atualizar a visualização, se necessário
+          pesquisarCliente2();
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro ao atualizar cliente:", status, error);
+        }
+      });
+    }
+  </script>
+</body>
+
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: #308B82;
+  }
+
+  .getCliente,
+  .deleteCliente,
+  .updateCliente {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  form {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    padding: 10px;
+    text-align: center;
+    background-color: #F2C230;
+    border-radius: 10px;
+    color: white;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  label {
+    color: white;
+  }
+
+  #atualizacaoFormCliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px auto;
+    max-width: 400px;
+  }
+</style>
+
+</html>

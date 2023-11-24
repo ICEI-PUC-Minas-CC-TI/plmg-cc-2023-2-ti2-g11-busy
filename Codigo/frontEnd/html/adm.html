@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Gerenciamento</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Menu de Gerenciamento BUSY</h1>
+
+    <button onclick="redirecionar('admViagem.html')">Gerenciar Viagens</button>
+    <button onclick="redirecionar('admCliente.html')">Gerenciar Clientes</button>
+    <button onclick="redirecionar('admPagamento.html')">Gerenciar Pagamentos</button>
+  </div>
+  <script>
+    function redirecionar(pagina) {
+      window.location.href = pagina;
+    }
+  </script>
+
+</body>
+
+<style>
+  h1 {
+    padding: 50px;
+    background-color: #F2C230;
+    border-radius: 50px;
+    color: white;
+  }
+
+  .container{
+    background-color: #20BFA1;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    border-radius: 50px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #308B82;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background: linear-gradient(96deg, #F2C230 -0.46%, #FFD700 100%);
+    border-radius: 10px;
+  }
+</style>
+
+</html>

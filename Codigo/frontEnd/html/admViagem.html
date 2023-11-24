@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Viagens</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="getViagem">
+      <h1>Pesquisa de Viagem</h1>
+
+      <form id="pesquisaFormViagem">
+        <label for="idInputViagem">Digite o ID da Viagem:</label>
+        <input type="text" id="idInputViagem" name="id" required>
+        <button type="button" onclick="pesquisarViagem()">Pesquisar</button>
+      </form>
+
+      <div id="resultadoViagem">
+        <!-- Aqui será exibido o resultado da pesquisa -->
+      </div>
+    </div>
+
+    <div class="deleteViagem">
+      <h1>Exclusão de Viagem</h1>
+
+      <form id="exclusaoFormViagem">
+        <label for="idInputExclusaoViagem">Digite o ID da Viagem para Excluir:</label>
+        <input type="text" id="idInputExclusaoViagem" name="id" required>
+        <button type="button" onclick="excluirViagem()">Excluir</button>
+      </form>
+
+      <div id="resultadoExclusaoViagem">
+        <!-- Aqui será exibido o resultado da exclusão -->
+      </div>
+    </div>
+
+</body>
+
+<script>
+  function pesquisarViagem() {
+    var id = $("#idInputViagem").val();
+
+    // Realizar requisição AJAX para obter os dados da viagem
+    $.ajax({
+      url: "/viagem/" + id,
+      type: "GET",
+      success: function (resultado) {
+        exibirResultado(resultado, "resultadoViagem");
+      },
+      error: function (xhr, status, error) {
+        console.error("Erro na requisição:", status, error);
+        exibirResultado(null, "resultadoViagem");
+      }
+    });
+  }
+
+  function exibirResultado(resultado, divId) {
+    var resultadoDiv = $("#" + divId);
+
+    resultadoDiv.html(resultado);
+  }
+
+  function excluirViagem() {
+    var idViagem = document.getElementById("idInputExclusaoViagem").value;
+
+    // Fazer uma requisição ao servidor para realizar a exclusão
+    fetch("/viagem/delete/" + idViagem, {
+      method: "DELETE",
+    })
+      .then(response => response.text())
+      .then(result => {
+        // Exibir o resultado da exclusão na página
+        document.getElementById("resultadoExclusaoViagem").innerHTML = result;
+      })
+      .catch(error => {
+        console.error("Erro ao excluir viagem:", error);
+      });
+  }
+</script>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: #308B82;
+  }
+
+  .getViagem,
+  .deleteViagem {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  form {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    padding: 10px;
+    text-align: center;
+    background-color: #F2C230;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  label{
+    color: white;
+  }
+
+
+
+  
+</style>
+
+</html>

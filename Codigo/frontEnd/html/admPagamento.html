@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Viagem por ID</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="getPagamento">
+      <h1>Pesquisa de Pagamento</h1>
+
+      <form id="pesquisaFormPagamento">
+        <label for="idInputPagamento">Digite o ID do Pagamento:</label>
+        <input type="text" id="idInputPagamento" name="id" required>
+        <button type="button" onclick="pesquisarPagamento()">Pesquisar</button>
+      </form>
+
+      <div id="resultadoPagamento">
+        <!-- Aqui será exibido o resultado da pesquisa -->
+      </div>
+    </div>
+
+    <div class="deletePagamento">
+      <h1>Exclusão de Pagamento</h1>
+
+      <form id="exclusaoFormPagamento">
+        <label for="idInputExclusaoPagamento">Digite o ID para Excluir:</label>
+        <input type="text" id="idInputExclusaoPagamento" name="id" required>
+        <button type="button" onclick="excluirPagamento()">Excluir</button>
+      </form>
+
+      <div id="resultadoExclusaoPagamento">
+        <!-- Aqui será exibido o resultado da exclusão -->
+      </div>
+    </div>
+    
+    <div class="updatePagamento">
+      <h1>Update de Pagamento</h1>
+
+      <form id="pesquisaFormPagamento">
+        <label for="idInputPagamento">Digite o ID do Pagamento:</label>
+        <input type="text" id="idInputPagamento" name="id" required>
+        <button type="button" onclick="pesquisarPagamento2()">Pesquisar</button>
+      </form>
+
+      <div id="resultadoPagamento">
+        <!-- Aqui será exibido o resultado da pesquisa -->
+      </div>
+
+      <form id="atualizacaoFormPagamento" style="display:none;">
+        <h2>Atualizar Pagamento</h2>
+        <label for="nomecartaoInput">Nome no Cartão:</label>
+        <input type="text" id="nomecartaoInput" name="nomecartao" required>
+
+        <label for="numerocartaoInput">Número do cartão:</label>
+        <input type="text" id="numerocartaoInput" name="numerocartao" required>
+
+        <label for="datavalidadecartaoInput">Data validade do cartão (MM/AAAA):</label>
+        <input type="text" id="datavalidadecartaoInput" name="datavalidadecartao" required>
+
+        <label for="cvvcartaoInput">CVV do cartão:</label>
+        <input type="text" id="cvvcartaoInput" name="cvvcartao" required>
+
+        <label for="tipoplanoInput">Tipo do plano:</label>
+        <select id="tipoplanoInput" name="tipoplano" required>
+          <option value="Luxo">Luxo</option>
+          <option value="Standard">Standard</option>
+        </select>
+
+        <button type="button" onclick="atualizarPagamento()">Atualizar</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script>
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    function pesquisarPagamento() {
+      var id = $("#idInputPagamento").val();
+
+      // Realizar requisição AJAX para obter os dados do pagamento
+      $.ajax({
+        url: "/pagamento/" + id,
+        type: "GET",
+        success: function (resultado) {
+          exibirResultado(resultado, "resultadoPagamento");
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro na requisição:", status, error);
+          exibirResultado(null, "resultadoPagamento");
+        }
+      });
+    }
+
+    function exibirResultado(resultado, divId) {
+      var resultadoDiv = $("#" + divId);
+
+      resultadoDiv.html(resultado);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    function excluirPagamento() {
+      var idPagamento = document.getElementById("idInputExclusaoPagamento").value;
+
+      // Fazer uma requisição ao servidor para realizar a exclusão
+      fetch("/pagamento/delete/" + idPagamento, {
+        method: "DELETE",
+      })
+        .then(response => response.text())
+        .then(result => {
+          // Exibir o resultado da exclusão na página
+          document.getElementById("resultadoExclusaoPagamento").innerHTML = result;
+        })
+        .catch(error => {
+          console.error("Erro ao excluir pagamento:", error);
+        });
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    function pesquisarPagamento2() {
+      var id = $("#idInputPagamento").val();
+
+      // Realizar requisição AJAX para obter os dados do pagamento
+      $.ajax({
+        url: "/pagamento/" + id,
+        type: "GET",
+        success: function (resultado) {
+          exibirResultado(resultado, "resultadoPagamento");
+          exibirFormularioAtualizacao(resultado);
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro na requisição:", status, error);
+          exibirResultado(null, "resultadoPagamento");
+          ocultarFormularioAtualizacao();
+        }
+      });
+    }
+
+    function exibirFormularioAtualizacao(pagamento) {
+      if (pagamento) {
+        $("#nomecartaoInput").val(pagamento.nomecartao);
+        $("#numerocartaoInput").val(pagamento.numerocartao);
+        $("#datavalidadecartaoInput").val(pagamento.datavalidadecartao);
+        $("#cvvcartaoInput").val(pagamento.cvvcartao);
+        $("#tipoplanoInput").val(pagamento.tipoplano);
+
+        $("#atualizacaoFormPagamento").show();
+      } else {
+        ocultarFormularioAtualizacao();
+      }
+    }
+
+    function ocultarFormularioAtualizacao() {
+      $("#atualizacaoFormPagamento").hide();
+    }
+
+    function atualizarPagamento() {
+      var idPagamento = $("#idInputPagamento").val();
+
+      // Fazer uma requisição ao servidor para realizar a atualização
+      $.ajax({
+        url: "/pagamento/update/" + idPagamento,
+        type: "POST",
+        data: {
+          nomecartao: $("#nomecartaoInput").val(),
+          numerocartao: $("#numerocartaoInput").val(),
+          datavalidadecartao: $("#datavalidadecartaoInput").val(),
+          cvvcartao: $("#cvvcartaoInput").val(),
+          tipoplano: $("#tipoplanoInput").val()
+        },
+        success: function (resultado) {
+          // Exibir o resultado da atualização na página
+          alert(resultado);
+          // Atualizar a visualização, se necessário
+          pesquisarPagamento2();
+        },
+        error: function (xhr, status, error) {
+          console.error("Erro ao atualizar pagamento:", status, error);
+        }
+      });
+    }
+  </script>
+</body>
+
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: #308B82;
+  }
+
+  .getPagamento,
+  .deletePagamento,
+  .updatePagamento {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  form {
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    padding: 10px;
+    text-align: center;
+    background-color: #F2C230;
+    border-radius: 10px;
+    color: white;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  label {
+    color: white;
+  }
+
+  #atualizacaoFormPagamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px auto;
+    max-width: 400px;
+  }
+</style>
+
+</html>
