@@ -46,8 +46,8 @@
 
     <div class="pesquisarRotas">
       <h1>PESQUISAR PASSAGENS: </h1>
-      <h5>Digite no formato cidade sigla. [Belo Horizonte MG]</h5>
-      
+      <h5>Digite no formato cidade sigla. [Belo Horizonte-MG]</h5>
+
       <form id="formViagem" action="/cadastrarViagem" method="post">
 
         <div class="origem">
@@ -71,10 +71,20 @@
         </div>
 
         <div class="botaoBuscar">
-          <input type="submit" id="buscarRotas" value="BUSCAR"</input>
+          <input type="submit" id="buscarRotas" value="BUSCAR" </input>
         </div>
       </form>
-      
+
+    </div>
+
+    <div class="chatbot">
+      <div class="cb1">
+        <img id="imgbot" src="imgbot.png">
+      </div>
+      <div class="cb2">
+        <h4>Ainda não sabe para onde viajar?</h4>
+        <button id="btnChatBot"> <span class="highlighted-word">CLIQUE AQUI</span> PARA CONVERSAR COM O BUSYBOT!</button>
+      </div>
     </div>
 
     <div class="container">
@@ -148,7 +158,7 @@
 
   <style>
     body {
-      zoom: 0.83;
+      zoom: 0.7;
     }
   </style>
   <script src="pag_inicial.js"></script>
