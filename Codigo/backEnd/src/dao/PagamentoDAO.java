@@ -5,7 +5,7 @@ import model.Pagamento;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.beans.Statement;
+//import java.beans.Statement;
 
 public class PagamentoDAO extends DAO {	
 	
@@ -35,7 +35,7 @@ public class PagamentoDAO extends DAO {
             e.printStackTrace();
         }
         
-        System.out.println("INSERIDO COM SUCESSO");
+        System.out.println("INSERIDO PAGAMENTO COM SUCESSO");
 		
 	}
 	
@@ -54,40 +54,56 @@ public class PagamentoDAO extends DAO {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
+		
+		System.out.println("EXIBIDO PAGAMENTO COM SUCESSO");
 		return pagamento;
 	}
 	
 	public boolean update(Pagamento pagamento) {
-		boolean status = false;
-		try {  
-			String sql = "UPDATE pagamento SET nomecartao = '" + pagamento.getNomeCartao() + "', "
-                   + "numerocartao = '" + pagamento.getNumeroCartao() + "', "
-                   + "datavalidadecartao = '" + pagamento.getDataValidade() + "', "
-                   + "cvvcartao = '" + pagamento.getCvvCartao() + "' "
-                   + "tipoPlano = '" + pagamento.getTipoPlano() + "' "
-                   + "WHERE id = " + pagamento.getId();
-			PreparedStatement st = conexao.prepareStatement(sql);
-		    
-			st.executeUpdate();
-			st.close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
+	    boolean status = false;
+	    try {
+	        String sql = "UPDATE pagamento SET nomecartao = ?, "
+	                + "numerocartao = ?, "
+	                + "datavalidadecartao = ?, "
+	                + "cvvcartao = ?, "
+	                + "tipoplano = ? "
+	                + "WHERE id = ?";
+	        
+	        try (PreparedStatement st = conexao.prepareStatement(sql)) {
+	            st.setString(1, pagamento.getNomeCartao());
+	            st.setString(2, pagamento.getNumeroCartao());
+	            st.setString(3, pagamento.getDataValidade());
+	            st.setString(4, pagamento.getCvvCartao());
+	            st.setString(5, pagamento.getTipoPlano());
+	            st.setInt(6, pagamento.getId());
+
+	            int rowsUpdated = st.executeUpdate();
+
+	            if (rowsUpdated > 0) {
+	                status = true;
+	            }
+	        }
+	    } catch (SQLException u) {
+	        throw new RuntimeException(u);
+	    }
+	    
+	    System.out.println("UPDATE PAGAMENTO COM SUCESSO");
+	    return status;
 	}
 	
 	public boolean delete(int id) {
-		boolean status = false;
-		try {  
-			Statement st = (Statement) conexao.createStatement();
-			((java.sql.Statement) st).executeUpdate("DELETE FROM pagamento WHERE id = " + id);
-			((java.sql.Statement) st).close();
-			status = true;
-		} catch (SQLException u) {  
-			throw new RuntimeException(u);
-		}
-		return status;
+	    boolean status = false;
+	    try {
+	        java.sql.Statement st = conexao.createStatement();
+	        st.executeUpdate("DELETE FROM pagamento WHERE id = " + id);
+	        st.close();
+	        status = true;
+	    } catch (SQLException u) {
+	        throw new RuntimeException(u);
+	    }
+	    
+	    System.out.println("DELETE PAGAMENTO COM SUCESSO");
+	    return status;
 	}
 	
 
