@@ -1,8 +1,13 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
 .cont1 {
   display: flex;
 }
 
-.standard, .luxo, .empresas {
+.standard, .luxo {
   flex: 1;
   padding: 40px;
   border: 1px solid #ccc;
@@ -15,23 +20,20 @@
   box-shadow: -4px 9px 8px 8px #308B82;
 }
 
-.standard{
-  margin-left: 80px;  
-}
-
-.empresas{
-  margin-right: 80px;
+.standard {
+  margin-left: 80px;
 }
 
 .luxo {
-  flex: 1.5;
+  flex: 1;
+  margin-right: 80px;
 }
 
-h3{
-  text-decoration: overline;  
+h3 {
+  text-decoration: overline;
 }
 
-h3, p{
+h3, p {
   color: #FFF;
   font-style: normal;
   font-weight: 400;
@@ -39,7 +41,7 @@ h3, p{
   letter-spacing: 0.5px;
 }
 
-#btnS, #btnL, #btnE{
+#btnS, #btnL {
   border-radius: 35px;
   background: #F2C230;
   color: #FFF;
@@ -51,5 +53,5 @@ h3, p{
   display: block;
   margin: 0 auto;
   margin-top: 20px;
-  padding: 5px;
+  padding: 8px;
 }
