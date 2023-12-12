@@ -1,31 +1,28 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Busy
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: de Sá Braz de Matos
+    given-names: Arthur
+  - family-names: Araújo Campos Silva
+    given-names: Gabriel
+  - family-names: Regina Perdigão
+    given-names: Célia
+  - family-names: Victor
+    given-names: Joshua
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Jerônio de Almeida
+    given-names: Sandro
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: Soares Gomes
+    given-names: Marco Paulo
 keywords:
-  - 
-  - 
-repository-code: 
+  - Mobilidade
+  - Ônibus
+  - Recomendação de Viagem
+repository-code: https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-2023-2-ti2-g11-busy
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2023-12-12
